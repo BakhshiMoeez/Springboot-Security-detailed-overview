@@ -5,6 +5,7 @@ import com.securitybase.security.beans.AuthenticationResponse;
 import com.securitybase.security.beans.RegisterRequest;
 import com.securitybase.security.models.CustomUser;
 import com.securitybase.security.repository.UserRepositiry;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -12,9 +13,13 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class AuthenticationService {
+    @Autowired
     private UserRepositiry userRepositiry;
+    @Autowired
     private PasswordEncoder passwordEncoder;
+    @Autowired
     private JwtService jwtService;
+    @Autowired
     private AuthenticationManager authenticationManager;
     public AuthenticationResponse register(RegisterRequest request) {
         var user = CustomUser.builder()
