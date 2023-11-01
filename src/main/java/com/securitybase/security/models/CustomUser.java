@@ -9,13 +9,14 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.List;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Entity
 @Table(name="UserTable")
-public class User implements UserDetails {
+public class CustomUser implements UserDetails {
     @Id
     @GeneratedValue
     private Integer id;
